@@ -75,12 +75,14 @@ class onOfficeSDK
 	 * @param string $apiVersion
 	 * @param string $server
 	 * @param array $curlOptions
+	 * @param array $cacheInstances
 	 * @param ApiCall|null $apiCall
 	 */
 	public function __construct(
 		$apiVersion = 'latest',
 		$server = 'https://api.onoffice.de/api/',
 		$curlOptions = [],
+		array $cacheInstances = [],
 		ApiCall $apiCall = null
 	) {
 		if (null === $apiCall) {
@@ -90,6 +92,7 @@ class onOfficeSDK
 		$this->apiCall->setServer($server);
 		$this->apiCall->setApiVersion($apiVersion);
 		$this->apiCall->setCurlOptions($curlOptions);
+		array_map(array($this->apiCall, 'addCache'), $cacheInstances);
 	}
 
 	/**
@@ -161,18 +164,6 @@ class onOfficeSDK
 	public function addCache(onOfficeSDKCache $pCache)
 	{
 		$this->apiCall->addCache($pCache);
-	}
-
-
-	/**
-	 *
-	 * @param array $cacheInstances
-	 *
-	 */
-
-	public function setCaches(array $cacheInstances)
-	{
-		array_map(array($this->apiCall, 'addCache'), $cacheInstances);
 	}
 
 
