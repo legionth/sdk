@@ -16,6 +16,7 @@ class onOfficeSDKTest extends \PHPUnit\Framework\TestCase
 		$onOfficeSdk = new \onOffice\SDK\onOfficeSDK(
 			'latest',
 			'https://api.onoffice.de/api/',
+			[],
 			$apiCall
 		);
 	}
@@ -37,8 +38,9 @@ class onOfficeSDKTest extends \PHPUnit\Framework\TestCase
 			->with('v1');
 
 		$onOfficeSdk = new \onOffice\SDK\onOfficeSDK(
-			'v1',
+			'latest',
 			'https://api.onoffice.de/api/',
+			[],
 			$apiCall
 		);
 	}
@@ -61,10 +63,9 @@ class onOfficeSDKTest extends \PHPUnit\Framework\TestCase
 		$onOfficeSdk = new \onOffice\SDK\onOfficeSDK(
 			'latest',
 			'https://api.onoffice.de/api/',
+			['some', 'actions'],
 			$apiCall
 		);
-
-		$onOfficeSdk->setApiCurlOptions(['some', 'actions']);
 	}
 
 	public function testCallGeneric()
@@ -91,6 +92,7 @@ class onOfficeSDKTest extends \PHPUnit\Framework\TestCase
 		$onOfficeSdk = new \onOffice\SDK\onOfficeSDK(
 			'latest',
 			'https://api.onoffice.de/api/',
+			[],
 			$apiCall
 		);
 
@@ -122,6 +124,7 @@ class onOfficeSDKTest extends \PHPUnit\Framework\TestCase
 		$onOfficeSdk = new \onOffice\SDK\onOfficeSDK(
 			'latest',
 			'https://api.onoffice.de/api/',
+			[],
 			$apiCall
 		);
 
@@ -150,6 +153,7 @@ class onOfficeSDKTest extends \PHPUnit\Framework\TestCase
 		$onOfficeSdk = new \onOffice\SDK\onOfficeSDK(
 			'latest',
 			'https://api.onoffice.de/api/',
+			[],
 			$apiCall
 		);
 
@@ -179,6 +183,7 @@ class onOfficeSDKTest extends \PHPUnit\Framework\TestCase
 		$onOfficeSdk = new \onOffice\SDK\onOfficeSDK(
 			'latest',
 			'https://api.onoffice.de/api/',
+			[],
 			$apiCall
 		);
 
