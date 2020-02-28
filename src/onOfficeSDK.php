@@ -48,20 +48,43 @@ class onOfficeSDK
 	/**
 	 * @param string $apiVersion
 	 * @param string $server
+	 * @param array $curlOptions
 	 * @param ApiCall|null $apiCall
 	 */
 	public function __construct(
 		$apiVersion = 'stable',
 		$server = 'https://api.onoffice.de/api/',
+		$curlOptions = [],
 		ApiCall $apiCall = null
 	) {
 		if (null === $apiCall) {
 			$apiCall = new ApiCall();
 		}
 		$this->apiCall = $apiCall;
-		$this->apiCall->setServer($server);
+		$this->apiCall->setServer('https://api.onoffice.de/api/');
 		$this->apiCall->setApiVersion($apiVersion);
 	}
+
+
+	/**
+	 * @param string $apiVersion
+	 */
+	public function setApiVersion($apiVersion)
+	{
+		$this->apiCall->setApiVersion($apiVersion);
+	}
+
+
+
+	/**
+	 * @param string $server
+	 */
+	public function setApiServer($server)
+	{
+		$this->apiCall->setServer($server);
+	}
+
+
 
 	/**
 	 * @param array  $curlOptions
@@ -70,7 +93,6 @@ class onOfficeSDK
 	{
 		$this->apiCall->setCurlOptions($curlOptions);
 	}
-
 
 	/**
 	 * @param string $actionId from constant above
